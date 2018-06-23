@@ -26,20 +26,8 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('./js_min'));
 });
 
-// Gulp task to minify HTML files
-gulp.task('pages', function() {
-    return gulp.src('./index_unmin.html')
-        .pipe(htmlmin({
-            collapseWhitespace: true,
-            removeComments: true
-        }))
-		.pipe(rename('./index.html'))
-        .pipe(gulp.dest('./'));
-});
-
 // Gulp task to minify all files
 gulp.task('default', gulp.parallel(
     'styles',
-    'scripts',
-    'pages'
+    'scripts'
 ));
